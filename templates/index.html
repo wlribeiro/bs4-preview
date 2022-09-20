@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Selector Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-zone">
+            <input type="text" id="css-selector" class="css-zone zone-config">
+            <textarea class="code-zone zone-config" id="code"></textarea>
+        </div>
+        <textarea class="code-zone zone-config"></textarea>
+        <button onclick="runCssSelector()">Run</button>
+    </div>
+
+
+
+    <script>
+        async function runCssSelector(){
+            const formData = {
+                "css_selector": document.getElementById("css-selector").value,
+                "html": document.getElementById("code").value
+            }
+
+            const apiUrl = `${window.location.href}run`;
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = response.json();
+            console.log(data)
+
+        }
+
+
+    </script>
+</body>
+
+</html>

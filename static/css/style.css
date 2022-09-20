@@ -1,0 +1,37 @@
+.input-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+
+}
+
+.input-zone textarea:focus, input:focus{
+    outline: none;
+}
+
+.css-zone {
+    border: 0;
+    height: 5vh;
+}
+
+.code-zone{
+    border: 0;
+    height: 70vh;
+}
+
+.zone-config {
+    border: 1px solid gray;
+    padding: 10px;
+    font-size: 1.3em;
+}
+
+
+
