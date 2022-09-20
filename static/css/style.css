@@ -30,7 +30,11 @@
 .zone-config {
     border: 1px solid gray;
     padding: 10px;
-    font-size: 1.3em;
+    font-size: 1em;
+}
+
+#result {
+    width: 70vh;
 }
 
 

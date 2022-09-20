@@ -11,18 +11,20 @@
 
 <body>
     <div class="container">
+        <a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank" rel="noopener noreferrer">?</a>
         <div class="input-zone">
+            <button onclick="runCssSelector()">Run</button>
+
             <input type="text" id="css-selector" class="css-zone zone-config">
             <textarea class="code-zone zone-config" id="code"></textarea>
         </div>
-        <textarea class="code-zone zone-config"></textarea>
-        <button onclick="runCssSelector()">Run</button>
+        <textarea class="zone-config" id="result"></textarea>
     </div>
 
 
 
     <script>
-        async function runCssSelector(){
+        async function runCssSelector() {
             const formData = {
                 "css_selector": document.getElementById("css-selector").value,
                 "html": document.getElementById("code").value
@@ -37,8 +39,8 @@
                 body: JSON.stringify(formData)
             });
 
-            const data = response.json();
-            console.log(data)
+            const data = await response.json();
+            document.getElementById("result").value = data.response;
 
         }
 

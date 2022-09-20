@@ -1,6 +1,7 @@
 import json
 import os
 from unittest import result
+from urllib import response
 from bs4 import BeautifulSoup
 
 
@@ -30,10 +31,15 @@ def index(request: Request) -> Request:
 
 @app.post("/run")
 async def run_css_selector(data: Item):
-    soup = BeautifulSoup(data.html, "html.parser")
-    result = soup.select_one(data.css_selector)
+    result = extract(data.html, data.css_selector)
     return {"response": str(result)}
 
-def coisa_complexa():
-    os.system("sleep 10")
-    return 1
+
+def request_and_extract(url):
+    response = requests.get(url)
+
+
+def extract(html, selector):
+    soup = BeautifulSoup(html, "html.parser")
+    result = soup.select_one(selector)
+    return result
