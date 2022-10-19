@@ -13,6 +13,11 @@
     <div class="container">
         <a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank" rel="noopener noreferrer">?</a>
         <div class="input-zone">
+            <div class="selector">
+                <p>select all occurrences</p>
+                <input type="checkbox" name="multi-selector" id="multi-selector">
+            </div>
+
             <button onclick="runCssSelector()">Run</button>
 
             <input type="text" id="css-selector" class="css-zone zone-config">
@@ -27,7 +32,8 @@
         async function runCssSelector() {
             const formData = {
                 "css_selector": document.getElementById("css-selector").value,
-                "html": document.getElementById("code").value
+                "html": document.getElementById("code").value,
+                "multi_selector": document.getElementById("multi-selector").checked
             }
 
             const apiUrl = `${window.location.href}run`;

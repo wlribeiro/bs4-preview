@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .input-zone {
     display: flex;
     flex-direction: column;
@@ -6,6 +10,7 @@
 }
 
 .container {
+    margin-top: 10vh;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -35,6 +40,12 @@
 
 #result {
     width: 70vh;
+}
+
+.selector {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 
